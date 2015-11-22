@@ -5,6 +5,7 @@ preferences.typeUnits = TypeUnits.POINTS;
 
 var myLineArray = new Array();
 var myTextFile = new File("file:///Volumes/Mack/汉化/——.txt");
+//如果在Windows下，路径也必须都用“/”
 myTextFile.open('r');
 
 
