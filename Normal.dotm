@@ -890,6 +890,23 @@ Sub 填字符号转换()
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
 
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "、|"
+        .Replacement.Text = "鳠|"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+
 End Sub
 Sub 填字符号校正()
     Selection.Find.ClearFormatting
@@ -1367,6 +1384,23 @@ Sub 填字符号校正()
         .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
+    
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = "鳠|"
+        .Replacement.Text = "、|"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = False
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
 Sub 一般数据转换()
     Selection.Find.ClearFormatting
@@ -1497,6 +1531,98 @@ Sub 世图()
         .MatchAllWordForms = False
         .MatchSoundsLike = False
         .MatchWildcards = True
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+End Sub
+Sub k()
+'
+' k 宏
+'
+'
+    Selection.Find.ClearFormatting
+    Selection.Find.Replacement.ClearFormatting
+    With Selection.Find
+        .Text = " "
+        .Replacement.Text = "^p"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = vbTab
+        .Replacement.Text = "^p"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "【"
+        .Replacement.Text = "^p【"
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "【^?^?^?】"
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "【^?^?^?^?】"
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
+    End With
+    Selection.Find.Execute Replace:=wdReplaceAll
+    With Selection.Find
+        .Text = "【^?^?^?^?^?】"
+        .Replacement.Text = ""
+        .Forward = True
+        .Wrap = wdFindContinue
+        .Format = False
+        .MatchCase = False
+        .MatchWholeWord = False
+        .MatchByte = True
+        .MatchWildcards = False
+        .MatchSoundsLike = False
+        .MatchAllWordForms = False
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
