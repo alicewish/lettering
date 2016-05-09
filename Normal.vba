@@ -206,7 +206,7 @@ Selection.Find.Execute Replace:=wdReplaceAll
 Selection.Find.Replacement.Font.Color = -738131969
 With Selection.Find
 .Text = "([0-9])([0-9])([0-9])"
-.Replacement.Text = ""
+.Replacement.Text = "0\1\2"
 .Wrap = wdFindContinue
 .Format = True
 End With
@@ -240,7 +240,6 @@ With Selection.Find
 .Text = "【([一-龥]{3,5})】"
 .Replacement.Text = "^13"
 .Wrap = wdFindContinue
-.Format = True
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
