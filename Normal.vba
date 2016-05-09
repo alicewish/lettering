@@ -131,8 +131,8 @@ Sub 填字符号转换()
 Dim BeforeChange() As Variant, AfterChange() As Variant
 Dim myArray1() As Variant, myArray2() As Variant, strFind As String, strRep As String
 Dim N As Byte
-BeforeChange = Array("--|",",|",":|","?!|","!|","?|","|——","|……","…|",".""|",".|","·","|--","|…","|""","——|","—|","，|","：|","？！|","！|","？|","……|","。”|","。|","”|","|—","|“","、|")
-AfterChange = Array(鲆|","鲡|","鲛|","鲧|","鲚|","鲩|","|鲮","|鳆","鲠|","鲋|","鲴|","鲂","|鲆","|鲠","|鲕","鲮|","鲵|","鲲|","鲒|","鲎|","鲣|","鳇|","鳆|","鲱|","鲼|","鲅|","|鲵","|鲽","鳠|)
+BeforeChange = Array("--|", ",|", ":|", "?!|", "!|", "?|", "|——", "|……", "…|", ".""|", ".|", "·", "|--", "|…", "|""", "——|", "—|", "，|", "：|", "？！|", "！|", "？|", "……|", "。”|", "。|", "”|", "|—", "|“", "、|")
+AfterChange = Array("鲆|", "鲡|", "鲛|", "鲧|", "鲚|", "鲩|", "|鲮", "|鳆", "鲠|", "鲋|", "鲴|", "鲂", "|鲆", "|鲠", "|鲕", "鲮|", "鲵|", "鲲|", "鲒|", "鲎|", "鲣|", "鳇|", "鳆|", "鲱|", "鲼|", "鲅|", "|鲵", "|鲽", "鳠|")
 myArray1 = BeforeChange
 myArray2 = AfterChange
 Application.ScreenUpdating = False '关闭屏幕更新
@@ -152,8 +152,8 @@ Sub 填字符号转回()
 Dim BeforeChange() As Variant, AfterChange() As Variant
 Dim myArray1() As Variant, myArray2() As Variant, strFind As String, strRep As String
 Dim N As Byte
-BeforeChange = Array("--|",",|",":|","?!|","!|","?|","|——","|……","…|",".""|",".|","·","|--","|…","|""","——|","—|","，|","：|","？！|","！|","？|","……|","。”|","。|","”|","|—","|“","、|")
-AfterChange = Array(鲆|","鲡|","鲛|","鲧|","鲚|","鲩|","|鲮","|鳆","鲠|","鲋|","鲴|","鲂","|鲆","|鲠","|鲕","鲮|","鲵|","鲲|","鲒|","鲎|","鲣|","鳇|","鳆|","鲱|","鲼|","鲅|","|鲵","|鲽","鳠|)
+BeforeChange = Array("--|", ",|", ":|", "?!|", "!|", "?|", "|——", "|……", "…|", ".""|", ".|", "·", "|--", "|…", "|""", "——|", "—|", "，|", "：|", "？！|", "！|", "？|", "……|", "。”|", "。|", "”|", "|—", "|“", "、|")
+AfterChange = Array("鲆|", "鲡|", "鲛|", "鲧|", "鲚|", "鲩|", "|鲮", "|鳆", "鲠|", "鲋|", "鲴|", "鲂", "|鲆", "|鲠", "|鲕", "鲮|", "鲵|", "鲲|", "鲒|", "鲎|", "鲣|", "鳇|", "鳆|", "鲱|", "鲼|", "鲅|", "|鲵", "|鲽", "鳠|")
 myArray1 = AfterChange
 myArray2 = BeforeChange
 Application.ScreenUpdating = False '关闭屏幕更新
@@ -247,16 +247,14 @@ End Sub
 
 Sub ChangeCAPStoBold()
 With Selection.Find
-    .Text = "(<[A-Z.]{2,})"
-    .Replacement.Text = "\1"
-    .Replacement.Font.Bold = True
-        .Wrap = wdFindContinue
-    .Format = True
+.Text = "(<[A-Z.]{2,})"
+.Replacement.Text = "\1"
+.Replacement.Font.Bold = True
+.Wrap = wdFindContinue
+.Format = True
 End With
 While Selection.Find.Execute
-   Selection.Range.Case = wdTitleWord
-   Selection.Font.Bold = True
+Selection.Range.Case = wdTitleWord
+Selection.Font.Bold = True
 Wend
 End Sub
-
-
