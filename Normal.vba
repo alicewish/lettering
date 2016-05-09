@@ -85,7 +85,6 @@ Selection.Find.Replacement.Font.Color = -738131969
 With Selection.Find
 .Text = "([0-9])([0-9])"
 .Replacement.Text = "^p\1\2"
-.Forward = True
 .Wrap = wdFindContinue
 .Format = True
 End With
@@ -96,7 +95,6 @@ Sub 校对转填字()
 With Selection.Find
 .Text = "^l"
 .Replacement.Text = "^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -104,14 +102,12 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "([0-9])([0-9])^13^13"
 .Replacement.Text = ""
-.Forward = True
 .Wrap = wdFindContinue
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "^p^p"
 .Replacement.Text = "^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -119,7 +115,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "^p"
 .Replacement.Text = "^p^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -127,7 +122,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "^p^p^p^p^p"
 .Replacement.Text = "^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -138,7 +132,6 @@ Sub 填字转分页()
 With Selection.Find
 .Text = "^p"
 .Replacement.Text = "^l"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchByte = True
 .MatchWildcards = False
@@ -147,7 +140,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "^11^11([0-9])([0-9])^11^11"
 .Replacement.Text = "^p^l"
-.Forward = True
 .Wrap = wdFindContinue
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
@@ -157,7 +149,6 @@ Sub 着重修正()
 With Selection.Find
 .Text = "|——"
 .Replacement.Text = "——|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -165,7 +156,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|—"
 .Replacement.Text = "—|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -173,7 +163,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|,"
 .Replacement.Text = ",|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -181,7 +170,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|!"
 .Replacement.Text = "!|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -189,7 +177,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|?!"
 .Replacement.Text = "?!|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -197,7 +184,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|?"
 .Replacement.Text = "?|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -205,7 +191,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|…"
 .Replacement.Text = "…|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -213,7 +198,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|。”"
 .Replacement.Text = "。”|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -221,7 +205,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|。"
 .Replacement.Text = "。|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -229,7 +212,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|”"
 .Replacement.Text = "”|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -237,7 +219,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "—|"
 .Replacement.Text = "|—"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -245,7 +226,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "——|"
 .Replacement.Text = "|——"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -253,7 +233,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "…|"
 .Replacement.Text = "|…"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -261,7 +240,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "“|"
 .Replacement.Text = "|“"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -272,7 +250,6 @@ Sub 填字符号转换()
 With Selection.Find
 .Text = "--|"
 .Replacement.Text = "鲆|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -280,7 +257,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = ",|"
 .Replacement.Text = "鲡|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -288,7 +264,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = ":|"
 .Replacement.Text = "鲛|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -296,7 +271,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "?!|"
 .Replacement.Text = "鲧|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -304,7 +278,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "!|"
 .Replacement.Text = "鲚|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -312,7 +285,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "?|"
 .Replacement.Text = "鲩|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -320,7 +292,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|——"
 .Replacement.Text = "|鲮"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -328,7 +299,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|……"
 .Replacement.Text = "|鳆"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -336,7 +306,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "…|"
 .Replacement.Text = "鲠|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -344,7 +313,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = ".""|"
 .Replacement.Text = "鲋|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -352,7 +320,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = ".|"
 .Replacement.Text = "鲴|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -360,7 +327,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "·"
 .Replacement.Text = "鲂"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -368,7 +334,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|--"
 .Replacement.Text = "|鲆"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -376,7 +341,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|…"
 .Replacement.Text = "|鲠"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -384,7 +348,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|"""
 .Replacement.Text = "|鲕"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -392,7 +355,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "——|"
 .Replacement.Text = "鲮|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -400,7 +362,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "—|"
 .Replacement.Text = "鲵|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -408,7 +369,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "，|"
 .Replacement.Text = "鲲|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -416,7 +376,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "：|"
 .Replacement.Text = "鲒|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -424,7 +383,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "？！|"
 .Replacement.Text = "鲎|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -432,7 +390,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "！|"
 .Replacement.Text = "鲣|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -440,7 +397,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "？|"
 .Replacement.Text = "鳇|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -448,7 +404,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "……|"
 .Replacement.Text = "鳆|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -456,7 +411,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "。”|"
 .Replacement.Text = "鲱|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -464,7 +418,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "。|"
 .Replacement.Text = "鲼|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -472,7 +425,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "”|"
 .Replacement.Text = "鲅|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -480,7 +432,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|—"
 .Replacement.Text = "|鲵"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -488,7 +439,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|“"
 .Replacement.Text = "|鲽"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -496,7 +446,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "、|"
 .Replacement.Text = "鳠|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -507,7 +456,6 @@ Sub 填字符号校正()
 With Selection.Find
 .Text = "鲆|"
 .Replacement.Text = "--|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -515,7 +463,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲡|"
 .Replacement.Text = ",|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -523,7 +470,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲛|"
 .Replacement.Text = ":|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -531,7 +477,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲧|"
 .Replacement.Text = "?!|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -539,7 +484,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲚|"
 .Replacement.Text = "!|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -547,7 +491,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲩|"
 .Replacement.Text = "?|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -555,7 +498,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|鲮"
 .Replacement.Text = "|——"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -563,7 +505,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|鳆"
 .Replacement.Text = "|……"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -571,7 +512,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲠|"
 .Replacement.Text = "…|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -579,7 +519,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲋|"
 .Replacement.Text = ".""|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -587,7 +526,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲴|"
 .Replacement.Text = ".|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -595,7 +533,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲂"
 .Replacement.Text = "·"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -603,7 +540,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|鲆"
 .Replacement.Text = "|--"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -611,7 +547,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|鲠"
 .Replacement.Text = "|…"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -619,7 +554,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|鲕"
 .Replacement.Text = "|"""
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -627,7 +561,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲮|"
 .Replacement.Text = "——|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -635,7 +568,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲵|"
 .Replacement.Text = "—|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -643,7 +575,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲲|"
 .Replacement.Text = "，|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -651,7 +582,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲒|"
 .Replacement.Text = "：|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -659,7 +589,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲎|"
 .Replacement.Text = "？！|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -667,7 +596,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲣|"
 .Replacement.Text = "！|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -675,7 +603,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鳇|"
 .Replacement.Text = "？|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -683,7 +610,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鳆|"
 .Replacement.Text = "……|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -691,7 +617,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲱|"
 .Replacement.Text = "。”|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -699,7 +624,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲼|"
 .Replacement.Text = "。|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -707,7 +631,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鲅|"
 .Replacement.Text = "”|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -715,7 +638,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|鲵"
 .Replacement.Text = "|—"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -723,7 +645,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "|鲽"
 .Replacement.Text = "|“"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
@@ -731,41 +652,16 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "鳠|"
 .Replacement.Text = "、|"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
-End Sub
-
-Sub 一般数据转换()
-With Selection.Find
-.Text = "^p"
-.Replacement.Text = "|"
-.Forward = True
-.Wrap = wdFindContinue
-.MatchByte = True
-.MatchWildcards = False
-End With
-Selection.Find.Execute Replace:=wdReplaceAll
-With Selection.Find
-.Text = "||"
-.Replacement.Text = "^p"
-.Forward = True
-.Wrap = wdFindContinue
-.MatchByte = True
-.MatchWildcards = False
-End With
-Selection.Find.Execute Replace:=wdReplaceAll
-Selection.WholeStory
-Selection.ParagraphFormat.Alignment = wdAlignParagraphLeft
 End Sub
 
 Sub 缩行()
 With Selection.Find
 .Text = "^p"
 .Replacement.Text = "の"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchByte = True
 .MatchWildcards = False
@@ -777,7 +673,6 @@ Sub 世图()
 With Selection.Find
 .Text = "^p"
 .Replacement.Text = "^p^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchByte = True
 .MatchWildcards = False
@@ -786,7 +681,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "^p^p^p^p"
 .Replacement.Text = "^p^p^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchByte = True
 .MatchWildcards = False
@@ -795,7 +689,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "([0-9])([0-9])"
 .Replacement.Text = "0\1\2"
-.Forward = True
 .Wrap = wdFindContinue
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
@@ -803,7 +696,6 @@ Selection.Find.Replacement.Font.Color = -738131969
 With Selection.Find
 .Text = "([0-9])([0-9])([0-9])"
 .Replacement.Text = ""
-.Forward = True
 .Wrap = wdFindContinue
 .Format = True
 End With
@@ -811,7 +703,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = "([0-9])([0-9])([0-9])"
 .Replacement.Text = "^p\1\2\3"
-.Forward = True
 .Wrap = wdFindContinue
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
@@ -821,7 +712,6 @@ Sub k() '对k的格式修正
 With Selection.Find
 .Text = " "
 .Replacement.Text = "^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchByte = True
 .MatchWildcards = False
@@ -830,7 +720,6 @@ Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
 .Text = vbTab
 .Replacement.Text = "^p"
-.Forward = True
 .Wrap = wdFindContinue
 .MatchByte = True
 .MatchWildcards = False
