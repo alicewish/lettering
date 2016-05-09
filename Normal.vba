@@ -1534,11 +1534,7 @@ Sub 世图()
     End With
     Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
-Sub k()
-'
-' k 宏
-'
-'
+Sub k()'对k的格式修正
     Selection.Find.ClearFormatting
     Selection.Find.Replacement.ClearFormatting
     With Selection.Find
