@@ -40,6 +40,7 @@ With ActiveDocument.Content.Find
 End With
 Application.ScreenUpdating = True '恢复屏幕更新
 End Sub
+
 Sub ChangeInterpunction() '中英文标点互换改
 Dim ChineseInterpunction() As Variant, EnglishInterpunction() As Variant
 Dim myArray1() As Variant, myArray2() As Variant, strFind As String, strRep As String
@@ -78,6 +79,7 @@ With ActiveDocument.Content.Find
 End With
 Application.ScreenUpdating = True '恢复屏幕更新
 End Sub
+
 Sub 测试()
 Selection.Find.Replacement.Font.Color = -738131969
 With Selection.Find
@@ -86,11 +88,10 @@ With Selection.Find
 .Forward = True
 .Wrap = wdFindContinue
 .Format = True
-.MatchWildcards = True
-.MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub 校对转填字()
 With Selection.Find
 .Text = "^l"
@@ -105,8 +106,6 @@ With Selection.Find
 .Replacement.Text = ""
 .Forward = True
 .Wrap = wdFindContinue
-.MatchWildcards = True
-.MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
@@ -134,6 +133,7 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub 填字转分页()
 With Selection.Find
 .Text = "^p"
@@ -149,11 +149,10 @@ With Selection.Find
 .Replacement.Text = "^p^l"
 .Forward = True
 .Wrap = wdFindContinue
-.MatchWildcards = True
-.MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub 着重修正()
 With Selection.Find
 .Text = "|——"
@@ -268,6 +267,7 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub 填字符号转换()
 With Selection.Find
 .Text = "--|"
@@ -502,6 +502,7 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub 填字符号校正()
 With Selection.Find
 .Text = "鲆|"
@@ -736,6 +737,7 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub 一般数据转换()
 With Selection.Find
 .Text = "^p"
@@ -758,6 +760,7 @@ Selection.Find.Execute Replace:=wdReplaceAll
 Selection.WholeStory
 Selection.ParagraphFormat.Alignment = wdAlignParagraphLeft
 End Sub
+
 Sub 缩行()
 With Selection.Find
 .Text = "^p"
@@ -769,6 +772,7 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub 世图()
 With Selection.Find
 .Text = "^p"
@@ -793,8 +797,6 @@ With Selection.Find
 .Replacement.Text = "0\1\2"
 .Forward = True
 .Wrap = wdFindContinue
-.MatchWildcards = True
-.MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 Selection.Find.Replacement.Font.Color = -738131969
@@ -804,8 +806,6 @@ With Selection.Find
 .Forward = True
 .Wrap = wdFindContinue
 .Format = True
-.MatchWildcards = True
-.MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
@@ -813,11 +813,10 @@ With Selection.Find
 .Replacement.Text = "^p\1\2\3"
 .Forward = True
 .Wrap = wdFindContinue
-.MatchWildcards = True
-.MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
 Sub k() '对k的格式修正
 With Selection.Find
 .Text = " "
@@ -838,39 +837,25 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
-.Text = "【"
-.Replacement.Text = "^p【"
-.Forward = True
+.Text = "【([一-龥]{3,5})】"
+.Replacement.Text = "^13"
 .Wrap = wdFindContinue
-.MatchByte = True
-.MatchWildcards = False
-End With
-Selection.Find.Execute Replace:=wdReplaceAll
-With Selection.Find
-.Text = "【^?^?^?】"
-.Replacement.Text = ""
-.Forward = True
-.Wrap = wdFindContinue
-.MatchByte = True
-.MatchWildcards = False
-End With
-Selection.Find.Execute Replace:=wdReplaceAll
-With Selection.Find
-.Text = "【^?^?^?^?】"
-.Replacement.Text = ""
-.Forward = True
-.Wrap = wdFindContinue
-.MatchByte = True
-.MatchWildcards = False
-End With
-Selection.Find.Execute Replace:=wdReplaceAll
-With Selection.Find
-.Text = "【^?^?^?^?^?】"
-.Replacement.Text = ""
-.Forward = True
-.Wrap = wdFindContinue
-.MatchByte = True
-.MatchWildcards = False
+.Format = True
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
+
+Sub ChangeCAPStoBold() '将全大写单词转为粗体
+With Selection.Find
+    .Text = "(<[A-Z.]{2,})"
+    .Replacement.Text = "\1"
+    .Replacement.Font.Bold = True
+        .Wrap = wdFindContinue
+    .Format = True
+End With
+While Selection.Find.Execute
+   Selection.Range.Case = wdTitleWord
+   Selection.Font.Bold = True
+Wend
+End Sub
+
