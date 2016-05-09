@@ -66,7 +66,7 @@ Sub 测试()
 Selection.Find.Replacement.Font.Color = -738131969
 With Selection.Find
 .Text = "([0-9])([0-9])"
-.Replacement.Text = "^p\1\2"
+.Replacement.Text = "^p0\1\2"
 .Forward = True
 .Wrap = wdFindContinue
 .Format = True
@@ -199,27 +199,14 @@ With Selection.Find
 .MatchWildcards = False
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
-With Selection.Find
-.Text = "([0-9])([0-9])"
-.Replacement.Text = "0\1\2"
-.Wrap = wdFindContinue
-.MatchWildcards = True
-End With
-Selection.Find.Execute Replace:=wdReplaceAll
 Selection.Find.Replacement.Font.Color = -738131969
 With Selection.Find
-.Text = "([0-9])([0-9])([0-9])"
-.Replacement.Text = "0\1\2"
+.Text = "([0-9])([0-9])"
+.Replacement.Text = "^p0\1\2"
+.Forward = True
 .Wrap = wdFindContinue
-.MatchWildcards = True
 .Format = True
-End With
-Selection.Find.Execute Replace:=wdReplaceAll
-With Selection.Find
-.Text = "([0-9])([0-9])([0-9])"
-.Replacement.Text = "^p\1\2\3"
 .MatchWildcards = True
-.Wrap = wdFindContinue
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
