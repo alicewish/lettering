@@ -29,14 +29,12 @@ With ActiveDocument.Content.Find
 .MatchWildcards = False '不使用通配符
 '查找相应的英文标点,替换为对应的中文标点
 .Execute findtext:=myArray1(N), replacewith:=myArray2(N), Replace:=wdReplaceAll
-.MatchWildcards = False
 End With
 Next
 With ActiveDocument.Content.Find
 .ClearFormatting '不限定查找格式
 .MatchWildcards = True '使用通配符
 .Execute findtext:=strFind, replacewith:=strRep, Replace:=wdReplaceAll
-.MatchWildcards = False
 End With
 Application.ScreenUpdating = True '恢复屏幕更新
 End Sub
@@ -56,7 +54,6 @@ With ActiveDocument.Content.Find
 .MatchWildcards = False '不使用通配符
 '查找替换
 .Execute findtext:=myArray1(N), replacewith:=myArray2(N), Replace:=wdReplaceAll
-.MatchWildcards = False
 End With
 Next
 Application.ScreenUpdating = True '恢复屏幕更新
@@ -144,7 +141,6 @@ With ActiveDocument.Content.Find
 .MatchWildcards = False '不使用通配符
 '查找替换
 .Execute findtext:=myArray1(N), replacewith:=myArray2(N), Replace:=wdReplaceAll
-.MatchWildcards = False
 End With
 Next
 Application.ScreenUpdating = True '恢复屏幕更新
@@ -165,7 +161,6 @@ With ActiveDocument.Content.Find
 .MatchWildcards = False '不使用通配符
 '查找替换
 .Execute findtext:=myArray1(N), replacewith:=myArray2(N), Replace:=wdReplaceAll
-.MatchWildcards = False
 End With
 Next
 Application.ScreenUpdating = True '恢复屏幕更新
@@ -232,6 +227,7 @@ With Selection.Find
 .Text = "【([一-龥]{3,5})】"
 .Replacement.Text = "^13"
 .Wrap = wdFindContinue
+.MatchWildcards = True
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
@@ -242,6 +238,7 @@ With Selection.Find
 .Replacement.Text = "\1"
 .Replacement.Font.Bold = True
 .Wrap = wdFindContinue
+.MatchWildcards = True
 .Format = True
 End With
 While Selection.Find.Execute
