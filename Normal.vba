@@ -73,6 +73,7 @@ Selection.Find.Execute Replace:=wdReplaceAll
 End Sub
 
 Sub 校对转填字()
+Dim N As Byte
 With Selection.Find
 .Text = "^l"
 .Replacement.Text = "^p"
@@ -81,9 +82,10 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
-.Text = "([0-9])([0-9])^13^13"
-.Replacement.Text = ""
+.Text = "^13^13([0-9])([0-9])^13^13"
+.Replacement.Text = "^p^p"
 .Wrap = wdFindContinue
+.MatchWildcards = True
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
