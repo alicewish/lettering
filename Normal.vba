@@ -96,6 +96,13 @@ With Selection.Find
 End With
 Selection.Find.Execute Replace:=wdReplaceAll
 With Selection.Find
+.Text = "^p^p"
+.Replacement.Text = "^p"
+.Wrap = wdFindContinue
+.MatchWildcards = False
+End With
+Selection.Find.Execute Replace:=wdReplaceAll
+With Selection.Find
 .Text = "^p"
 .Replacement.Text = "^p^p"
 .Wrap = wdFindContinue
@@ -113,19 +120,20 @@ End Sub
 
 Sub 填字转分页()
 With Selection.Find
-.Text = "^p"
-.Replacement.Text = "^l"
+.Text = "^p" '查找硬换行
+.Replacement.Text = "^l" '替换为软换行
 .Wrap = wdFindContinue
 .MatchByte = True
-.MatchWildcards = False
+.MatchWildcards = False '不使用通配符
 End With
-Selection.Find.Execute Replace:=wdReplaceAll
+Selection.Find.Execute Replace:=wdReplaceAll '全部替换
 With Selection.Find
-.Text = "^11^11([0-9])([0-9])^11^11"
-.Replacement.Text = "^p^l"
+.Text = "^11^11([0-9])([0-9])^11^11" '查找[软换行*2][两位数字][软换行*2]格式的页码
+.Replacement.Text = "^p^l" '替换为[硬换行][软换行]
 .Wrap = wdFindContinue
+.MatchWildcards = True '不使用通配符
 End With
-Selection.Find.Execute Replace:=wdReplaceAll
+Selection.Find.Execute Replace:=wdReplaceAll '全部替换
 End Sub
 
 Sub 填字符号转换()
@@ -170,13 +178,13 @@ End Sub
 
 Sub 缩行()
 With Selection.Find
-.Text = "^p"
-.Replacement.Text = "の"
+.Text = "^p" '查找
+.Replacement.Text = "の" '替换
 .Wrap = wdFindContinue
 .MatchByte = True
-.MatchWildcards = False
+.MatchWildcards = False '不使用通配符
 End With
-Selection.Find.Execute Replace:=wdReplaceAll
+Selection.Find.Execute Replace:=wdReplaceAll '全部替换
 End Sub
 
 Sub 世图()
@@ -247,4 +255,67 @@ While Selection.Find.Execute
 Selection.Range.Case = wdTitleWord
 Selection.Font.Bold = True
 Wend
+End Sub
+
+Sub 不义联盟()
+'中英文标点互换
+Dim ChineseInterpunction() As Variant, EnglishInterpunction() As Variant
+Dim myArray1() As Variant, myArray2() As Variant, strFind As String, strRep As String
+Dim N As Byte
+'定义一个中文标点的数组对象
+ChineseInterpunction = Array("、", "。", "，", "；", "：", "？", "！", "……", "—", "～", "（", "）", "《", "》")
+'定义一个英文标点的数组对象
+EnglishInterpunction = Array("、", ".", ",", ";", ":", "?", "!", "…", "-", "~", "(", ")", "&lt;", "&gt;")
+'将中文标点转换为英文标点q
+myArray1 = ChineseInterpunction
+myArray2 = EnglishInterpunction
+strFind = "“(*)”"
+strRep = """\1"""
+Application.ScreenUpdating = False '关闭屏幕更新
+For N = 0 To UBound(ChineseInterpunction) '从数组的下标到上标间作一个循环
+With ActiveDocument.Content.Find
+.ClearFormatting '不限定查找格式
+.MatchWildcards = False '不使用通配符
+'查找相应的英文标点,替换为对应的中文标点
+.Execute findtext:=myArray1(N), replacewith:=myArray2(N), Replace:=wdReplaceAll
+End With
+Next
+With ActiveDocument.Content.Find
+.ClearFormatting '不限定查找格式
+.MatchWildcards = True '使用通配符
+.Execute findtext:=strFind, replacewith:=strRep, Replace:=wdReplaceAll
+End With
+Application.ScreenUpdating = True '恢复屏幕更新
+'填字转分页
+With Selection.Find
+.Text = "^p"
+.Replacement.Text = "^l"
+.Wrap = wdFindContinue
+.MatchByte = True
+.MatchWildcards = False
+End With
+Selection.Find.Execute Replace:=wdReplaceAll
+With Selection.Find
+.Text = "^11^11([0-9])([0-9])^11^11"
+.Replacement.Text = "^p^l"
+.Wrap = wdFindContinue
+.MatchWildcards = True
+End With
+Selection.Find.Execute Replace:=wdReplaceAll
+'填字符号转换
+Dim BeforeChange() As Variant, AfterChange() As Variant
+BeforeChange = Array("--|", ",|", ":|", "?!|", "!|", "?|", "|——", "|……", "…|", ".""|", ".|", "·", "|--", "|…", "|""", "——|", "—|", "，|", "：|", "？！|", "！|", "？|", "……|", "。”|", "。|", "”|", "|—", "|“", "、|")
+AfterChange = Array("鲆|", "鲡|", "鲛|", "鲧|", "鲚|", "鲩|", "|鲮", "|鳆", "鲠|", "鲋|", "鲴|", "鲂", "|鲆", "|鲠", "|鲕", "鲮|", "鲵|", "鲲|", "鲒|", "鲎|", "鲣|", "鳇|", "鳆|", "鲱|", "鲼|", "鲅|", "|鲵", "|鲽", "鳠|")
+myArray1 = BeforeChange
+myArray2 = AfterChange
+Application.ScreenUpdating = False '关闭屏幕更新
+For N = 0 To UBound(BeforeChange) '从数组的下标到上标间作一个循环
+With ActiveDocument.Content.Find
+.ClearFormatting '不限定查找格式
+.MatchWildcards = False '不使用通配符
+'查找替换
+.Execute findtext:=myArray1(N), replacewith:=myArray2(N), Replace:=wdReplaceAll
+End With
+Next
+Application.ScreenUpdating = True '恢复屏幕更新
 End Sub
