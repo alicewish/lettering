@@ -4,8 +4,7 @@ var originalTypeUnit = preferences.typeUnits;
 preferences.typeUnits = TypeUnits.POINTS;
 
 var myLineArray = new Array();
-var myTextFile = new File("file:///Volumes/Mack/汉化/——.txt");
-//如果在Windows下，路径也必须都用“/”
+var myTextFile = new File("//psf/Host/Volumes/Mack/����/����.txt");
 myTextFile.open('r');
 
 
@@ -96,6 +95,16 @@ case 9:
 case 10:
   textItemRef.contents = myLineArray[emptrow[n]+1]+'\r'+myLineArray[emptrow[n]+2]+'\r'+myLineArray[emptrow[n]+3]+'\r'+myLineArray[emptrow[n]+4]+'\r'+myLineArray[emptrow[n]+5]+'\r'+myLineArray[emptrow[n]+6]+'\r'+myLineArray[emptrow[n]+7]+'\r'+myLineArray[emptrow[n]+8]+'\r'+myLineArray[emptrow[n]+9]+'\r'+myLineArray[emptrow[n]+10];
   break;
+
+case 11:
+  textItemRef.contents = myLineArray[emptrow[n]+1]+'\r'+myLineArray[emptrow[n]+2]+'\r'+myLineArray[emptrow[n]+3]+'\r'+myLineArray[emptrow[n]+4]+'\r'+myLineArray[emptrow[n]+5]+'\r'+myLineArray[emptrow[n]+6]+'\r'+myLineArray[emptrow[n]+7]+'\r'+myLineArray[emptrow[n]+8]+'\r'+myLineArray[emptrow[n]+9]+'\r'+myLineArray[emptrow[n]+10]+'\r'+myLineArray[emptrow[n]+11];
+  break;
+
+case 12:
+  textItemRef.contents = myLineArray[emptrow[n]+1]+'\r'+myLineArray[emptrow[n]+2]+'\r'+myLineArray[emptrow[n]+3]+'\r'+myLineArray[emptrow[n]+4]+'\r'+myLineArray[emptrow[n]+5]+'\r'+myLineArray[emptrow[n]+6]+'\r'+myLineArray[emptrow[n]+7]+'\r'+myLineArray[emptrow[n]+8]+'\r'+myLineArray[emptrow[n]+9]+'\r'+myLineArray[emptrow[n]+10]+'\r'+myLineArray[emptrow[n]+11]+'\r'+myLineArray[emptrow[n]+12];
+  break;
+
+
   
 default:
 ;
