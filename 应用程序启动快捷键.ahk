@@ -73,7 +73,6 @@ Return
 ^+#!5::run G:\熟肉
 ^+#!6::run \\Mac\Home\Documents
 ^+#!7::run \\Mac\Home\Downloads\Compressed
-^+#!8::run \\Mac\Home\Documents\Tencent Files\782841300\FileRecv
 ^+#!9::run \\Mac\Home\Desktop
 ^+#!0:: ;激活MangaMeeya
 {
